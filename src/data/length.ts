@@ -109,9 +109,9 @@ const lengths: Data[] = [
     aliases: ["Ångström"],
   },
   {
-    unit: "mil",
+    unit: "myriameter",
     reference: 1e4,
-    aliases: ["myriameter"],
+    aliases: [],
   },
   {
     unit: "xu",
