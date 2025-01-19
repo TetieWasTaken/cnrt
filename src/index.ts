@@ -104,5 +104,9 @@ if (isNaN(value)) {
 
 const result = convert(value, fromData.data, toData.data);
 console.log(
-  `\x1b[1m${value}\x1b[0m ${fromData.data.unit} = \x1b[1m${result}\x1b[0m ${toData.data.unit}`,
+  `\x1b[1m${value}\x1b[0m ${fromData.data.unit} ${
+    fromData.data.aliases[0] ? `(${fromData.data.aliases[0]})` : ""
+  } = \x1b[1m${result}\x1b[0m ${toData.data.unit} ${
+    toData.data.aliases[0] ? `(${toData.data.aliases[0]})` : ""
+  }`,
 );
