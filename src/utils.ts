@@ -38,13 +38,22 @@ export function getUnitData(unit: string): { key: string; data: Data } | null {
 
 export function convert(
   value: number,
-  from: Data | null,
-  to: Data | null,
+  from: Data,
+  to: Data,
 ): number {
+  if (from === to) return value;
+
+  if (from.customConvert && to.customConvert) {
+    return to.customConvert.fromBase(
+      from.customConvert.toBase(value),
+    );
+  } else if (from.customConvert) {
+    return from.customConvert.toBase(value);
+  } else if (to.customConvert) {
+    return to.customConvert.fromBase(value);
+  }
+
   if (from && to) return (value * from.reference) / to.reference;
-  else if (from && !to) return value * from.reference;
-  else if (!from && to) return value / to.reference;
-  else return value;
 }
 
 export function getSuggestions(unit: string): string[] {
