@@ -1,5 +1,6 @@
 import { Data, ExtendedData } from "./types";
 import * as fs from "fs";
+import { distance } from "fastest-levenshtein";
 
 function getData(): Record<string, ExtendedData[]> {
   const data: Record<string, ExtendedData[]> = {};
@@ -42,4 +43,21 @@ export function convert(
   else if (from && !to) return value * from.reference;
   else if (!from && to) return value / to.reference;
   else return value;
+}
+
+export function getSuggestions(unit: string): string[] {
+  const suggestions: Record<string, number> = {};
+
+  for (const key in dataIndex) {
+    for (const data of dataIndex[key]) {
+      for (const alias of data.aliases) {
+        const dist = distance(unit, alias);
+        if (dist <= 2) suggestions[alias] = dist;
+      }
+    }
+  }
+
+  return Object.keys(suggestions)
+    .sort((a, b) => suggestions[a] - suggestions[b])
+    .slice(0, 5);
 }

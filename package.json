@@ -10,7 +10,8 @@
     "url": "https://github.com/TetieWasTaken/cnrt/issues"
   },
   "dependencies": {
-    "@commander-js/extra-typings": "^13.0.0"
+    "@commander-js/extra-typings": "^13.0.0",
+    "fastest-levenshtein": "^1.0.16"
   },
   "description": "CLI for converting time, lengths, mass, and more!",
   "homepage": "https://github.com/TetieWasTaken/cnrt#readme",

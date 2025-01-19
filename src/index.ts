@@ -1,6 +1,6 @@
 import { Command } from "@commander-js/extra-typings";
 import { VERSION } from "./constants";
-import { convert, getUnitData } from "./utils";
+import { convert, getSuggestions, getUnitData } from "./utils";
 
 const program = new Command()
   .version(VERSION, "-v, --version", "output the current version")
@@ -13,13 +13,19 @@ const options = program.opts();
 
 const fromData = options.from ? getUnitData(options.from) : null;
 if (options.from && !fromData) {
-  console.error(`Unit "${options.from}" not found.`);
+  console.error(`\x1b[31mUnit "${options.from}" not found.\x1b[0m`);
+  console.log(
+    `Did you mean: \x1b[33m${getSuggestions(options.from).join(", ")}\x1b[0m?`,
+  );
   process.exit(1);
 }
 
 const toData = options.to ? getUnitData(options.to) : null;
 if (options.to && !toData) {
-  console.error(`Unit "${options.to}" not found.`);
+  console.error(`\x1b[31mUnit "${options.to}" not found.\x1b[0m`);
+  console.log(
+    `Did you mean: \x1b[33m${getSuggestions(options.to).join(", ")}\x1b[0m?`,
+  );
   process.exit(1);
 }
 
