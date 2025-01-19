@@ -25,12 +25,12 @@ function getData(): Record<string, ExtendedData[]> {
 
 export const dataIndex = getData();
 
-export function getUnitData(unit: string): Data | null {
+export function getUnitData(unit: string): { key: string; data: Data } | null {
   for (const key in dataIndex) {
     const data = dataIndex[key].find((d) =>
       d.unit === unit || d.aliases.includes(unit)
     );
-    if (data) return data;
+    if (data) return { key, data };
   }
 
   return null;
