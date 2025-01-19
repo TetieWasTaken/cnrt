@@ -1,0 +1,28 @@
+{
+  "author": {
+    "name": "Tetie",
+    "url": "https://github.com/TetieWasTaken"
+  },
+  "bin": {
+    "cnrt": "./dist/index.js"
+  },
+  "bugs": {
+    "url": "https://github.com/TetieWasTaken/cnrt/issues"
+  },
+  "dependencies": {
+    "@commander-js/extra-typings": "^13.0.0"
+  },
+  "description": "CLI for converting time, lengths, mass, and more!",
+  "homepage": "https://github.com/TetieWasTaken/cnrt#readme",
+  "license": "Unlicense",
+  "name": "cnrt",
+  "repository": "github:TetieWasTaken/cnrt",
+  "scripts": {
+    "build": "npm run clear && npm run update && npm run compile && npm run shebang",
+    "clear": "rm -rf ./dist",
+    "update": "./update.zsh",
+    "compile": "tsc",
+    "shebang": "echo '#!/usr/bin/env node' | cat - ./dist/index.js > temp && mv temp ./dist/index.js"
+  },
+  "version": "1.0.0"
+}
