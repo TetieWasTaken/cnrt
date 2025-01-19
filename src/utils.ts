@@ -24,7 +24,9 @@ const dataIndex = getData();
 
 export function getUnitData(unit: string): Data | null {
   for (const key in dataIndex) {
-    const data = dataIndex[key].find((d) => d.unit === unit);
+    const data = dataIndex[key].find((d) =>
+      d.unit === unit || d.aliases.includes(unit)
+    );
     if (data) return data;
   }
 
