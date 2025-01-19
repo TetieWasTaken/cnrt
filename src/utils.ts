@@ -54,6 +54,11 @@ export function getSuggestions(unit: string): string[] {
         const dist = distance(unit, alias);
         if (dist <= 2) suggestions[alias] = dist;
       }
+
+      if (data.unit.length > 2) {
+        const dist = distance(unit, data.unit);
+        if (dist <= 2) suggestions[data.unit] = dist;
+      }
     }
   }
 
