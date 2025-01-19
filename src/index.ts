@@ -41,6 +41,8 @@ if (!program.args.length) {
 }
 
 let fromData = options.from ? getUnitData(options.from) : null;
+let toData = options.to ? getUnitData(options.to) : null;
+
 if (options.from && !fromData) {
   console.error(`\x1b[31mUnit "${options.from}" not found.\x1b[0m`);
   const suggestions = getSuggestions(options.from);
@@ -51,12 +53,19 @@ if (options.from && !fromData) {
   }
   process.exit(1);
 } else if (!fromData) {
+  const key = toData.key;
+  const defaultValue = dataIndex[key].find((d) => d.default);
+  if (defaultValue === toData.data) {
+    console.error(
+      `\x1b[31mCannot convert from default unit without specifying "to" unit.\x1b[0m`,
+    );
+    process.exit(1);
+  }
   console.warn(
-    `\x1b[33mNo "from" unit specified. Using default unit.\x1b[0m`,
+    `\x1b[33mNo "from" unit specified. Using default unit.\x1b[0m (${defaultValue.unit})`,
   );
 }
 
-let toData = options.to ? getUnitData(options.to) : null;
 if (options.to && !toData) {
   console.error(`\x1b[31mUnit "${options.to}" not found.\x1b[0m`);
   const suggestions = getSuggestions(options.to);
@@ -67,8 +76,17 @@ if (options.to && !toData) {
   }
   process.exit(1);
 } else if (!toData) {
+  const key = fromData.key;
+  const defaultValue = dataIndex[key].find((d) => d.default);
+  if (defaultValue === fromData.data) {
+    console.error(
+      `\x1b[31mCannot convert to default unit without specifying "from" unit.\x1b[0m`,
+    );
+    process.exit(1);
+  }
+
   console.warn(
-    `\x1b[33mNo "to" unit specified. Using default unit.\x1b[0m`,
+    `\x1b[33mNo "to" unit specified. Using default unit.\x1b[0m (${defaultValue.unit})`,
   );
 }
 
