@@ -1,15 +1,29 @@
 import { Command } from "@commander-js/extra-typings";
 import { VERSION } from "./constants";
-import { convert, getSuggestions, getUnitData } from "./utils";
+import { convert, dataIndex, getSuggestions, getUnitData } from "./utils";
 
 const program = new Command()
   .version(VERSION, "-v, --version", "output the current version")
   .option("-f, --from <from>", "from unit")
   .option("-t, --to <to>", "to unit")
+  .option("-l, --list", "list all available units")
   .argument("<value>", "value to convert");
 
 program.parse();
 const options = program.opts();
+
+if (options.list) {
+  console.log("\x1b[1m\x1b[34mAvailable Categories:\x1b[0m");
+  for (const key in dataIndex) {
+    console.log(
+      `\x1b[1m\x1b[32m${key}:\x1b[0m ${
+        dataIndex[key].map((d) => ` \x1b[33m${d.unit}\x1b[0m`).join(",")
+      }`,
+    );
+  }
+
+  process.exit(0);
+}
 
 const fromData = options.from ? getUnitData(options.from) : null;
 if (options.from && !fromData) {

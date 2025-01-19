@@ -21,7 +21,7 @@ function getData(): Record<string, ExtendedData[]> {
   return data;
 }
 
-const dataIndex = getData();
+export const dataIndex = getData();
 
 export function getUnitData(unit: string): Data | null {
   for (const key in dataIndex) {
