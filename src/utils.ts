@@ -30,3 +30,9 @@ export function getUnitData(unit: string): Data | null {
 
   return null;
 }
+
+export function convert(value: number, from: Data, to: Data | null): number {
+  if (!to) return value * from.reference;
+
+  return (value * from.reference) / to.reference;
+}
