@@ -43,9 +43,12 @@ if (!program.args.length) {
 let fromData = options.from ? getUnitData(options.from) : null;
 if (options.from && !fromData) {
   console.error(`\x1b[31mUnit "${options.from}" not found.\x1b[0m`);
-  console.log(
-    `Did you mean: \x1b[33m${getSuggestions(options.from).join(", ")}\x1b[0m?`,
-  );
+  const suggestions = getSuggestions(options.from);
+  if (suggestions.length > 0) {
+    console.log(
+      `Did you mean: \x1b[33m${suggestions.join(", ")}\x1b[0m?`,
+    );
+  }
   process.exit(1);
 } else if (!fromData) {
   console.warn(
@@ -56,9 +59,12 @@ if (options.from && !fromData) {
 let toData = options.to ? getUnitData(options.to) : null;
 if (options.to && !toData) {
   console.error(`\x1b[31mUnit "${options.to}" not found.\x1b[0m`);
-  console.log(
-    `Did you mean: \x1b[33m${getSuggestions(options.to).join(", ")}\x1b[0m?`,
-  );
+  const suggestions = getSuggestions(options.to);
+  if (suggestions.length > 0) {
+    console.log(
+      `Did you mean: \x1b[33m${suggestions.join(", ")}\x1b[0m?`,
+    );
+  }
   process.exit(1);
 } else if (!toData) {
   console.warn(

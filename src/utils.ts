@@ -53,11 +53,12 @@ export function getSuggestions(unit: string): string[] {
   for (const key in dataIndex) {
     for (const data of dataIndex[key]) {
       for (const alias of data.aliases) {
+        if (alias.length <= 3) continue;
         const dist = distance(unit, alias);
         if (dist <= 2) suggestions[alias] = dist;
       }
 
-      if (data.unit.length > 2) {
+      if (data.unit.length > 3) {
         const dist = distance(unit, data.unit);
         if (dist <= 2) suggestions[data.unit] = dist;
       }
