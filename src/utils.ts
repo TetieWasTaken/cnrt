@@ -33,8 +33,13 @@ export function getUnitData(unit: string): Data | null {
   return null;
 }
 
-export function convert(value: number, from: Data, to: Data | null): number {
-  if (!to) return value * from.reference;
-
-  return (value * from.reference) / to.reference;
+export function convert(
+  value: number,
+  from: Data | null,
+  to: Data | null,
+): number {
+  if (from && to) return (value * from.reference) / to.reference;
+  else if (from && !to) return value * from.reference;
+  else if (!from && to) return value / to.reference;
+  else return value;
 }

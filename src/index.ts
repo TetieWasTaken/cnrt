@@ -4,15 +4,15 @@ import { convert, getUnitData } from "./utils";
 
 const program = new Command()
   .version(VERSION, "-v, --version", "output the current version")
-  .requiredOption("-f, --from <from>", "from unit")
+  .option("-f, --from <from>", "from unit")
   .option("-t, --to <to>", "to unit")
   .argument("<value>", "value to convert");
 
 program.parse();
 const options = program.opts();
 
-const fromData = getUnitData(options.from);
-if (!fromData) {
+const fromData = options.from ? getUnitData(options.from) : null;
+if (options.from && !fromData) {
   console.error(`Unit "${options.from}" not found.`);
   process.exit(1);
 }
