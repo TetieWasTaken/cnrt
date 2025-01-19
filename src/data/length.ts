@@ -219,7 +219,7 @@ const lengths: Data[] = [
   {
     unit: "R⊕",
     reference: 6.371e6,
-    aliases: ["Earth radius", "Re"],
+    aliases: ["Earth radius", "Earth's radius", "Rearth"],
   },
   {
     unit: "LD",

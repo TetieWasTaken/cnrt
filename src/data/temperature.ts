@@ -21,6 +21,46 @@ const temperatures: Data[] = [
       toBase: (value) => value - 273.15,
     },
   },
+  {
+    unit: "R",
+    aliases: ["Rankine", "°R", "rankine"],
+    customConvert: {
+      fromBase: (value) => (value + 273.15) * 1.8,
+      toBase: (value) => (value - 491.67) * (5 / 9),
+    },
+  },
+  {
+    unit: "De",
+    aliases: ["Delisle", "°De", "delisle"],
+    customConvert: {
+      fromBase: (value) => (100 - value) * 1.5,
+      toBase: (value) => (100 - value * 2 / 3),
+    },
+  },
+  {
+    unit: "N",
+    aliases: ["Newton", "°N", "newton"],
+    customConvert: {
+      fromBase: (value) => value * (33 / 100),
+      toBase: (value) => value * (100 / 33),
+    },
+  },
+  {
+    unit: "Re",
+    aliases: ["Réaumur", "°Re", "réaumur", "r"],
+    customConvert: {
+      fromBase: (value) => value * 0.8,
+      toBase: (value) => value * 1.25,
+    },
+  },
+  {
+    unit: "Ra",
+    aliases: ["Rømer", "°Ra", "rømer"],
+    customConvert: {
+      fromBase: (value) => value * (21 / 40) + 7.5,
+      toBase: (value) => (value - 7.5) * (40 / 21),
+    },
+  },
 ];
 
 export default temperatures;
