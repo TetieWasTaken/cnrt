@@ -15,6 +15,8 @@ function getData(): Record<string, ExtendedData[]> {
       d.default = d.unit === defaultUnit;
     }
 
+    moduleData.sort((a, b) => a.reference - b.reference);
+
     data[file.split(".")[0]] = moduleData;
   }
 
