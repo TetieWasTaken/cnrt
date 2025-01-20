@@ -207,7 +207,7 @@ const lengths: Data[] = [
     aliases: ["light-hour", "lighthour"],
   },
   {
-    unit: "lm",
+    unit: "lim",
     reference: 1.7989e10,
     aliases: ["light-minute", "lightminute"],
   },

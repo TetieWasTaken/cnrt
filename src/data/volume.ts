@@ -90,7 +90,7 @@ const volumes: Data[] = [
   {
     unit: "cu in",
     reference: 1.63871e-5,
-    aliases: ["cubic inch", "cubic inches"],
+    aliases: ["cubic inch", "cubic inches", "in3"],
   },
   {
     unit: "mi3",
@@ -116,11 +116,6 @@ const volumes: Data[] = [
     unit: "board foot",
     reference: 0.0024,
     aliases: ["board feet"],
-  },
-  {
-    unit: "in3",
-    reference: 1.63871e-5,
-    aliases: ["cubic inch", "cuin", "cu in"],
   },
   {
     unit: "MTON",
@@ -226,11 +221,6 @@ const volumes: Data[] = [
     unit: "US bsh",
     reference: 0.035,
     aliases: ["US bushel", "USbsh", "usbsh", "U.S.bsh"],
-  },
-  {
-    unit: "US bu",
-    reference: 0.035,
-    aliases: ["US bushel", "USbu", "usbu", "U.S.bu"],
   },
   {
     unit: "US kenning",

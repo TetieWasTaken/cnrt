@@ -13,7 +13,7 @@
     "@commander-js/extra-typings": "^13.0.0",
     "fastest-levenshtein": "^1.0.16"
   },
-  "description": "CLI for converting time, lengths, mass, and more!",
+  "description": "CLI for converting length, light, mass, temperature, time and volume units.",
   "homepage": "https://github.com/TetieWasTaken/cnrt#readme",
   "license": "Unlicense",
   "name": "cnrt",
