@@ -1,7 +1,7 @@
 # [cnrt](https://npmjs.com/package/cnrt)
 [![npm](https://img.shields.io/npm/v/cnrt.svg)](https://npmjs.com/package/cnrt)
 [![npm](https://img.shields.io/npm/dm/cnrt.svg)](https://npmjs.com/package/cnrt)
-[![npm](https://img.shields.io/npm/l/cnrt.svg)](https://npmjs.com/package/cnrt)
+[![npm](https://img.shields.io/npm/l/cnrt.svg)](https://github.com/TetieWasTaken/cnrt/blob/main/LICENSE)
 
 cnrt is a CLI for converting length, light, mass, temperature, time and volume units. All written in TypeScript! You can find the package on [npm](https://npmjs.com/package/cnrt).
 
