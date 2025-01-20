@@ -129,6 +129,19 @@ console.log(
   }`,
 );
 
+if (result.toString().split(".")[1]?.length > 5) {
+  console.log(
+    `\x1b[1m\x1b[36mNote:\x1b[0m Conversion may not be fully accurate due to rounding errors.`,
+  );
+}
+
+if (fromData.data.reference) {
+  const conversionRate = result / value;
+  console.log(
+    `\x1b[1mConversion Rate:\x1b[0m 1 ${fromData.data.unit} = ${conversionRate} ${toData.data.unit}`,
+  );
+}
+
 if (fromData.data.warning) {
   console.warn(`\x1b[33mWarning: ${fromData.data.warning}\x1b[0m`);
 }
