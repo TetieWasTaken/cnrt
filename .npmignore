@@ -6,3 +6,4 @@ duplicates.zsh
 package-lock.json
 tsconfig.json
 update.zsh
+.github
