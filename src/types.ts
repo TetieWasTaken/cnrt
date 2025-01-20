@@ -8,6 +8,7 @@ export interface Data {
   aliases: string[];
   reference?: number;
   customConvert?: Convert;
+  warning?: string;
 }
 
 export interface ExtendedData extends Data {

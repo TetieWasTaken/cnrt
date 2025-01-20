@@ -128,3 +128,11 @@ console.log(
     toData.data.aliases[0] ? `(${toData.data.aliases[0]})` : ""
   }`,
 );
+
+if (fromData.data.warning) {
+  console.warn(`\x1b[33mWarning: ${fromData.data.warning}\x1b[0m`);
+}
+
+if (toData.data.warning) {
+  console.warn(`\x1b[33mWarning: ${toData.data.warning}\x1b[0m`);
+}
