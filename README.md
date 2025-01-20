@@ -3,14 +3,17 @@
 [![npm](https://img.shields.io/npm/dm/cnrt.svg)](https://npmjs.com/package/cnrt)
 [![npm](https://img.shields.io/npm/l/cnrt.svg)](https://github.com/TetieWasTaken/cnrt/blob/main/LICENSE)
 
-cnrt is a CLI for converting length, light, mass, temperature, time and volume units. All written in TypeScript! You can find the package on [npm](https://npmjs.com/package/cnrt).
+cnrt is a CLI for converting various units including length, light, mass, temperature, time, and volume such as kilometers to miles, pounds to grams, and more. And it's all written in TypeScript! You can find the package on [npm](https://npmjs.com/package/cnrt).
 
 ## Installation
 ```bash
-npm install -g cnrt
+npm install -g cnrt # install the package globally (you may need to use sudo)
+cnrt 100 -f km -t mi # test the installation
 ```
 
 ## Usage
+
+###### Please note that the units are case-sensitive (`mg` ≠ `Mg`)
 
 | Command            | Description                  |
 |--------------------|------------------------------|
@@ -22,7 +25,7 @@ npm install -g cnrt
 | `-t, --to <to>`    | to unit                      |
 | `-l, --list`       | list all available units     |
 | `-h, --help`       | display help for command     |
-###### general usage: `index [value] [options]`
+###### general usage: `cnrt [value] [options]`
 
 ### Examples
 ```bash
@@ -34,7 +37,6 @@ cnrt 50 -f F
 cnrt 30 -f lb -t g
 ```
 
-###### Please note that the units are case-sensitive (`mg` ≠ `Mg`)
 ###### Aliases are supported for most units (e.g. `m`/`meter` and `ft`/`foot`)
 
 ### List of available units
@@ -59,8 +61,7 @@ planck, qs, rs, ys, jiffy, zs, as, fs, S, ps, ns, shake, µs, ms, cs, ds, s, das
 
 #### Volume (in increasing size order)
 mm3, μL, cm3, mL, cL, cu in, imp fl oz, dL, gi, US dry pt, imp pt, dm3, L, imp qt, US dry qt, board foot, US dry gal, US pk, pk, daL, kenning, US kenning, ft3, US fl oz, US bsh, imp bsh, firkin, kilderkin, hL, US bbl, US beer bbl, US dry bbl, imp bbl, bbl, US pt, yd3, US qt, m3, kL, MTON, US gal, imp gal, dam3, ML, acre ft, hm3, GL, km3, mi3
-
-###### Units stated above may not be 100% accurate, please refer to src/data or use `cnrt -l` for the most accurate list
+###### The units listed above may not be 100% accurate. For the most accurate list, please refer to the source data in `src/data` or use the `cnrt -l` command.
 
 ## Local Development
 ```bash
@@ -71,3 +72,6 @@ npm install
 npm run build
 node ./dist/index.js
 ```
+
+## Legal & Disclaimer
+This software is provided as is and is not responsible for any damages or losses caused by the software. I do not claim ownership of any of the units listed in the software nor can I guarantee the accuracy of the conversions. The creation and structure of the data was aided by online tools and AI. If you find any errors or issues with the software and data, please create an issue on the GitHub repository.
