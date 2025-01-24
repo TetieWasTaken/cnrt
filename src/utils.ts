@@ -4,10 +4,10 @@ import { distance } from "fastest-levenshtein";
 
 function getData(): Record<string, ExtendedData[]> {
   const data: Record<string, ExtendedData[]> = {};
-  const files = fs.readdirSync("dist/data");
+  const files = fs.readdirSync(__dirname + "/data");
 
   for (const file of files) {
-    const module = require(`./data/${file}`);
+    const module = require(__dirname + `/data/${file}`);
     const moduleData = module.default as ExtendedData[];
     const defaultUnit = module.defaultUnit as string;
 
